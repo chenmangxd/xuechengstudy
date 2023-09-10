@@ -1,0 +1,46 @@
+###
+POST http://localhost:8080/getHgSystemInfo
+
+###
+POST {{content_host}}/content/course/list
+Content-Type: application/json
+
+{
+  "auditStatus": "string",
+   "courseName": ""
+}
+
+###
+GET {{content_host}}/content/course-category/tree-nodes
+Content-Type: application/json
+
+{
+  "auditStatus": "string",
+   "courseName": ""
+}
+
+### 创建课程
+POST {{content_host}}/content/course
+Content-Type: application/json
+
+{
+  "mt": "",
+  "st": "",
+  "name": "1",
+  "pic": "",
+  "teachmode": "200002",
+  "users": "初级人员",
+  "tags": "",
+  "grade": "204001",
+  "description": "",
+  "charge": "201000",
+  "price": 0,
+  "originalPrice":0,
+  "qq": "",
+  "wechat": "",
+  "phone": "",
+  "validDays": 365
+}
+###
+GET {{content_host}}/content/course/40
+Content-Type: application/json
