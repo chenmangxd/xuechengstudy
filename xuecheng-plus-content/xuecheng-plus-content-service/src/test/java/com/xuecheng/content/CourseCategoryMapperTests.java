@@ -32,9 +32,6 @@ public class CourseCategoryMapperTests {
     @Test
     public void testCourseCategoryMapper() {
         List<CourseCategoryTreeDto> courseCategoryTreeDtos = courseCategoryMapper.selectTreeNodes("1");
-        for (CourseCategoryTreeDto courseCategoryTreeDto : courseCategoryTreeDtos) {
-            System.out.println(courseCategoryTreeDto);
-        }
-
+        System.out.println(courseCategoryTreeDtos);
     }
 }
