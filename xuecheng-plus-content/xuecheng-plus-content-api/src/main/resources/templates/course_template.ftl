@@ -179,8 +179,8 @@
                                 <div class="title act"><i class="i-chevron-top"></i>${firstNode.pname}<span class="time">x小时</span></div>
                                 <div class="drop-down" style="height: 260px;">
                                     <ul class="list-box">
-                                        <#list firstNode.teachPlanTreeNodes as secondNode>
-                                            <li><a href="http://www.51xuecheng.cn/course/preview/learning.html?id=${model.courseBase.id}&chapter=${secondNode.teachplanMedia.teachplanId!''}" target="_blank">${secondNode.pname}</a></li>
+                                     <#list firstNode.teachPlanTreeNodes as secondNode>  <#-- ${secondNode.teachplanMedia.teachplanId!""}   -->
+                                            <li><a href="http://www.51xuecheng.cn/course/preview/learning.html?id=${model.courseBase.id!''}&chapter=149" target="_blank">${secondNode.pname!''}</a></li>
                                         </#list>
                                     </ul>
                                 </div>
@@ -617,8 +617,8 @@
             <div class="content">
                 <img :src="qrcode" width="200" height="200" alt="请点击支付宝支付按钮，并完成扫码支付。"/>
 
-                <div class="info">
-                    <p class="info-tit">${model.courseBase.name}<span>课程有效期:${model.courseBase.validDays}天</span></p>
+                 <div class="info">  <#--                ${model.courseBase.validDays!""}-->
+                    <p class="info-tit">${model.courseBase.name!""}<span>课程有效期:1天</span></p>
                     <p class="info-pic">课程价格 : <span>￥${model.courseBase.originalPrice!''}元</span></p>
                     <p class="info-new-pic">优惠价格 : <span>￥${model.courseBase.price!''}元</span></p>
                 </div>

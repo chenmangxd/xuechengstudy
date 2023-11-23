@@ -9,6 +9,17 @@ Content-Type: application/json
   "auditStatus": "string",
    "courseName": ""
 }
+### 课程发布
+POST {{content_host}}/content/coursepublish/121
+
+###
+POST {{content_host}}/content/courseaudit/commit/121
+Content-Type: application/json
+
+{
+  "auditStatus": "string",
+  "courseName": ""
+}
 ###
 GET {{content_host}}/content/teachplan/74/tree-nodes
 
@@ -46,8 +57,15 @@ Content-Type: application/json
   "validDays": 365
 }
 ###
-GET {{content_host}}/content/course/40
+GET {{content_host}}/content/coursepreview/18
 Content-Type: application/json
+
+###
+GET {{content_host}}/content/course/1
+Content-Type: application/json
+
+###
+POST {{auth_host}}/auth/oauth/token?client_id=XcWebApp&client_secret=XcWebApp&grant_type=authorization_code&code=yvqFc1&redirect_uri=http://www.51xuecheng.cn
 
 ### 新增课程计划--章
 POST {{content_host}}/content/teachplan
@@ -60,6 +78,14 @@ Content-Type: application/json
   "pname" : "新章名称 [点击修改]"
 }
 
+###
+POST {{media_host}}/media/upload/coursefile
+Content-Type: application/json
+
+{
+  "filedata" : " ",
+  "objectName": "course/120.html"
+}
 
 ### 新增课程计划--节,从数据库找到第一级的课程计划id向其下边添加计划
 POST {{content_host}}/content/teachplan
@@ -91,3 +117,60 @@ Content-Type: application/json
   "auditStatus": "202002",
   "courseName": ""
 }
+### 添加课程索引
+POST {{search_host}}/search/index/course
+Content-Type: application/json
+
+{
+  "charge" : "201000",
+  "companyId" : 100000,
+  "companyName" : "北京黑马程序员",
+  "createDate" : "2022-09-25 09:36:11",
+  "description" : "《Java编程思想》是2007年6月1日机械工业出版社出版的图书，作者是埃克尔，译者是陈昊鹏。主要内容本书赢得了全球程序员的广泛赞誉，即使是最晦涩的概念，在Bruce Eckel的文字亲和力和小而直接的编程示例面前也会化解于无形。从Java的基础语法到最高级特性（深入的面向对象概念、多线程、自动项目构建、单元测试和调试等），本书都能逐步指导你轻松掌握。从本书获得的各项大奖以及来自世界各地的读者评论中，不难看出这是一本经典之作",
+  "grade" : "204001",
+  "id" : 102,
+  "mt" : "1-3",
+  "mtName" : "编程开发",
+  "name" : "Java编程思想",
+  "originalPrice" : 200.0,
+  "pic" : "/mediafiles/2022/09/20/1d0f0e6ed8a0c4a89bfd304b84599d9c.png",
+  "price" : 100.0,
+  "remark" : "没有备注",
+  "st" : "1-3-2",
+  "stName" : "Java语言",
+  "status" : "203002",
+  "tags" : "没有标签",
+  "teachmode" : "200002",
+  "validDays" : 222
+}
+### 添加课程索引
+POST {{search_host}}/search/index/course
+Content-Type: application/json
+
+{
+  "charge" : "201000",
+  "companyId" : 100000,
+  "companyName" : "北京黑马程序",
+  "createDate" : "2022-09-25 09:36:11",
+  "description" : "《Spring编程思想》是2007年6月1日机械工业出版社出版的图书，作者是埃克尔，译者是陈昊鹏。主要内容本书赢得了全球程序员的广泛赞誉，即使是最晦涩的概念，在Bruce Eckel的文字亲和力和小而直接的编程示例面前也会化解于无形。从Java的基础语法到最高级特性（深入的面向对象概念、多线程、自动项目构建、单元测试和调试等），本书都能逐步指导你轻松掌握。从本书获得的各项大奖以及来自世界各地的读者评论中，不难看出这是一本经典之作",
+  "grade" : "204001",
+  "id" : 102,
+  "mt" : "1-3",
+  "mtName" : "编程开发",
+  "name" : "Spring编程思想",
+  "originalPrice" : 200.0,
+  "pic" : "/mediafiles/2022/09/20/1d0f0e6ed8a0c4a89bfd304b84599d9c.png",
+  "price" : 100.0,
+  "remark" : "没有备注",
+  "st" : "1-3-2",
+  "stName" : "Java语言",
+  "status" : "203002",
+  "tags" : "没有标签",
+  "teachmode" : "200002",
+  "validDays" : 222
+}
+
+
+### 搜索课程
+GET {{search_host}}/search/course/list?pageNo=1&keywords=spring
+Content-Type: application/json
